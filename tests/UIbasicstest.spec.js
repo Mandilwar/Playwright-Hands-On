@@ -7,7 +7,7 @@ test('Browser Context Playwright Test',async ({browser})=>
     }
 );
 
-test('Page Playwright Test',async ({browser, page})=>
+test('Page Playwright Test',async ({page})=>
     {
         await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     }
