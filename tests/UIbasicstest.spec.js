@@ -12,3 +12,5 @@ test('Page Playwright Test',async ({page})=>
         await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     }
 );
+
+/* For running a single test out of multiple test, use test.only() annotation */
