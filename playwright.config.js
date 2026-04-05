@@ -1,17 +1,5 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 const config = ({
   testDir: './tests',
   timeout:40000, //40 secs explicit wait time
@@ -21,7 +9,7 @@ const config = ({
   reporter : 'html',
   use: {
     browserName : 'chromium',
-    headless : false
+    //headless : false
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // headless:true -> runs the test in headless mode, which means the browser will not be visible during test execution. This is useful for faster execution and when running tests in CI/CD pipelines.
   },
