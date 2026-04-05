@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+const { defineConfig, devices } = require('@playwright/test');
 
 /**
  * Read environment variables from file.
@@ -20,8 +20,10 @@ const config = ({
   },
   reporter : 'html',
   use: {
-    browserName : 'chromium'
+    browserName : 'chromium',
+    headless : false
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    // headless:true -> runs the test in headless mode, which means the browser will not be visible during test execution. This is useful for faster execution and when running tests in CI/CD pipelines.
   },
 });
 module.exports = config;
