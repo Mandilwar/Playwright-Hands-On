@@ -20,6 +20,7 @@ test('Browser Context Playwright Test',async ({browser})=>
         await password.fill("");
         await password.fill("Learning@830$3mK2");
         await signin.click();
+        await page.waitForLoadState('networkidle');
         console.log(await cardtitles.first().textContent());
         console.log(await cardtitles.nth(1).textContent());
         const alltitles = await cardtitles.allTextContents();
@@ -28,7 +29,6 @@ test('Browser Context Playwright Test',async ({browser})=>
         await expect(cardtitles.nth(1)).toContainText("Samsung Note 8");
     }
 );
-
 /*test('Page Playwright Test',async ({page})=>
     {
         await page.goto("https://google.com");
