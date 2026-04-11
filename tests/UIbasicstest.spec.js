@@ -29,12 +29,50 @@ test('Browser Context Playwright Test',async ({browser})=>
         await expect(cardtitles.nth(1)).toContainText("Samsung Note 8");
     }
 );
-/*test('Page Playwright Test',async ({page})=>
+test('UI Controls',async ({page})=>
     {
-        await page.goto("https://google.com");
-        console.log(await page.title());
-        await expect(page).toHaveTitle("Google");
+        await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+        const username = page.locator("#username");
+        const signin = page.locator("#signInBtn");
+        const dropdown = page.locator("select.form-control");
+        const doclink = page.locator("[href*='documents-request']");
+        await dropdown.selectOption("Consultant");
+        await page.locator(".radiotextsty").last().click();
+        await expect(page.locator(".modal-body")).toContainText("Proceed?");
+        await page.locator("#okayBtn").click();
+        console.log(await page.locator(".radiotextsty").last().isChecked());
+        await expect(page.locator(".radiotextsty").last()).toBeChecked();
+        await page.locator("#terms").click();
+        await expect(page.locator("#terms")).toBeChecked();
+        await page.locator("#terms").uncheck();
+        expect(await page.locator("#terms").isChecked()).toBeFalsy();
+        await expect(doclink).toHaveAttribute("class","blinkingText");
+        // await page.pause();
     }   
-);*/
+);
+
+test('Child Window Handling',async ({browser})=>
+    {
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        const username = page.locator("#username");
+        await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+        const doclink = page.locator("[href*='documents-request']");
+        const [newpage] = await Promise.all([
+        context.waitForEvent('page'),
+        doclink.click(),
+        ]);
+        await newpage.waitForLoadState('networkidle');
+        const text = await newpage.locator("p.red").textContent();
+        const arraytext = await text.split("@");
+        const domain = await arraytext[1].split(" ")[0];
+        console.log(text);
+        console.log(domain);
+        await username.fill(domain);
+        await page.pause();
+        console.log(await username.textContent());
+        //console.log(await username.inputValue()); //Required when there is a need of dynamic update in edit boxes.
+    }
+);
 
 /* For running a single test out of multiple test, use test.only() annotation */
