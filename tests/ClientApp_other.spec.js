@@ -25,7 +25,7 @@ test('Client App Automation Practice',async ({browser})=>
         await page.locator(".card-body").filter({hasText:'ADIDAS ORIGINAL'}).getByRole("button",{name:" Add To Cart"}).click(); //chaining of steps
         await cart.click();
         await page.waitForLoadState('networkidle');
-        await page.locator("div li").first().waitFor();
+        await page.locator("li").filter({hasText: 'ADIDAS ORIGINAL'}).waitFor();
         const item_visible = await page.getByText("ADIDAS ORIGINAL").isVisible();
         await expect(item_visible).toBeTruthy();
         const item_number = await page.locator("p.itemNumber").textContent();
