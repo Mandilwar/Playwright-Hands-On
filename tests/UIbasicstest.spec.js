@@ -29,8 +29,10 @@ test('Browser Context Playwright Test',async ({browser})=>
         await expect(cardtitles.nth(1)).toContainText("Samsung Note 8");
     }
 );
-test('UI Controls',async ({page})=>
+test('UI Controls',async ({browser})=>
     {
+        const context = await browser.newContext();
+        const page = await context.newPage();
         await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
         const username = page.locator("#username");
         const signin = page.locator("#signInBtn");
@@ -69,7 +71,6 @@ test('Child Window Handling',async ({browser})=>
         console.log(text);
         console.log(domain);
         await username.fill(domain);
-        await page.pause();
         console.log(await username.textContent());
         //console.log(await username.inputValue()); //Required when there is a need of dynamic update in edit boxes.
     }
