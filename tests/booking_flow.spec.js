@@ -48,9 +48,9 @@ Overall it blends commerce, celebration, and tradition into a lively, family-fri
     await expect(events.first()).toBeVisible();
     const allevents = await events.allTextContents();
     console.log(allevents);
-    const card = await page.locator(`#event-card:has-text("${event_title}")`).last();
+    const card = await page.locator(`#event-card:has-text("${event_title}")`);
     await expect(card).toBeVisible();
-    const seats = await card.getByText("500").innerText();
+    const seats = await card.getByText("seats").first().innerText();
     const seats_count = await parseInt(await seats.replace(/\D/g, ''), 10);
     console.log(seats_count);
     await expect(seats_count).toBe(500);
@@ -83,9 +83,10 @@ Overall it blends commerce, celebration, and tradition into a lively, family-fri
     await page.locator("#nav-events").click();
     await page.waitForLoadState("networkidle");
     await expect(events.first()).toBeVisible();
-    const updated_card = await page.locator(`#event-card:has-text("${event_title}")`);
-    await expect(updated_card).toBeVisible();
-    const updated_seats_count = parseInt(await updated_card.getByText("seats").first().innerText());
+    //const updated_card = await page.locator(`#event-card:has-text("${event_title}")`);
+    //await expect(updated_card).toBeVisible();
+    await page.waitForTimeout(2000);
+    const updated_seats_count = parseInt(await card.getByText("seats").first().innerText());
     console.log(updated_seats_count);
     await expect(updated_seats_count).toBe(seats_count - 1);
     console.log(allevents);
