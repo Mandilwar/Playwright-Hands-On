@@ -10,7 +10,7 @@ const config = ({
   use: {
     browserName : 'chromium',
     screenshot : 'on',
-    trace : 'retain-on-failure'
+    trace : 'on'
     //headless : false
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // headless:true -> runs the test in headless mode, which means the browser will not be visible during test execution. This is useful for faster execution and when running tests in CI/CD pipelines.
