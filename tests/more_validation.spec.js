@@ -19,3 +19,23 @@ test('Popup Validations', async({browser})=>{
     console.log(await text_check.split(' ')[1]);
     await page.pause();
 });
+
+/*test("Screenshot and Visual Comparison",async({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    await expect(page.locator("#displayed-text")).toBeVisible();
+    await page.locator("#displayed-text").screenshot({path:"displayed-text.png"});
+    await page.locator("#hide-textbox").click();
+    await page.screenshot({path: "screenshot.png"});
+    await expect(page.locator("#displayed-text")).toBeHidden();
+});
+
+test("Visual Testing",async({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto("https://google.com/");
+    await page.waitForTimeout(5000);
+    const google = await page.screenshot({path: "google.png"});
+    await expect(google).toMatchSnapshot("google.png");
+});*/
