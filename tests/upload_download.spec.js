@@ -43,5 +43,4 @@ test("Upload and Download Excel Verification",async({browser})=>{
     const text = await page.getByText(search_text);
     const row = await page.getByRole("row").filter({has: text});
     await expect(row.locator("#cell-4-undefined")).toContainText(update_value.toString());
-    await page.pause();
 });
