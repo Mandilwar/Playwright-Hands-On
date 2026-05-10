@@ -36,10 +36,11 @@ test("Upload and Download Excel Verification",async({browser})=>{
     const download_promise = page.waitForEvent("download");
     await page.getByRole("button",{name:"Download"}).click();
     const download = await download_promise;
-    await download.saveAs("/Users/L053981/Downloads/download.xlsx");
-    write_excel(search_text,update_value,{row_change:0,col_change:2},"/Users/L053981/Downloads/download.xlsx");
+    const fileName = `Report_${timestamp}.xlsx`;
+    await download.saveAs(`/Users/L053981/Downloads/${fileName}`);
+    write_excel(search_text,update_value,{row_change:0,col_change:2},"/Users/L053981/Downloads/${fileName}");
     await page.locator("#fileinput").click();
-    await page.locator("#fileinput").setInputFiles("/Users/L053981/Downloads/download.xlsx");
+    await page.locator("#fileinput").setInputFiles(`/Users/L053981/Downloads/${fileName}`);
     const text = await page.getByText(search_text);
     const row = await page.getByRole("row").filter({has: text});
     await expect(row.locator("#cell-4-undefined")).toContainText(update_value.toString());
