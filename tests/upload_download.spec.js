@@ -1,4 +1,5 @@
 const exceljs = require('exceljs');
+import path from 'path';
 const {test,expect} = require("@playwright/test");
 async function write_excel(search_value,replace_value,change_value,file_path)
 {
@@ -36,11 +37,13 @@ test("Upload and Download Excel Verification",async({browser})=>{
     const download_promise = page.waitForEvent("download");
     await page.getByRole("button",{name:"Download"}).click();
     const download = await download_promise;
+    const timestamp = Date.now();
     const fileName = `Report_${timestamp}.xlsx`;
-    await download.saveAs(`/Users/L053981/Downloads/${fileName}`);
-    write_excel(search_text,update_value,{row_change:0,col_change:2},"/Users/L053981/Downloads/${fileName}");
+    const filepath = path.join(process.cwd(),"downloads",fileName);
+    await download.saveAs(filepath);
+    write_excel(search_text,update_value,{row_change:0,col_change:2},filepath);
     await page.locator("#fileinput").click();
-    await page.locator("#fileinput").setInputFiles(`/Users/L053981/Downloads/${fileName}`);
+    await page.locator("#fileinput").setInputFiles(filepath);
     const text = await page.getByText(search_text);
     const row = await page.getByRole("row").filter({has: text});
     await expect(row.locator("#cell-4-undefined")).toContainText(update_value.toString());
