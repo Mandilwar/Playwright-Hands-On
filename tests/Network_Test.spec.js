@@ -86,16 +86,17 @@ test('Automation Practice on E-commerce Website',async ({page})=>
         await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",
         async route =>
         {
-            const response = await route.fetch();
-            const body = await fake_payload.json();
+            //const response = await route.fetch();
             route.fulfill(
                 {
-                    response,
-                    body
+                    status: 200,
+                    contentType: "application/json",
+                    body: JSON.stringify(fake_payload)
                 });
         });
+        const responsePromise = page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*");
         await page.locator("[routerlink*='myorders']").first().click();
-        await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*");
+        await responsePromise;
         console.log(await page.locator(".mt-4").textContent());
         //await page.waitForLoadState('networkidle');
         //await page.locator("tbody").waitFor();
