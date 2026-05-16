@@ -10,7 +10,7 @@ test.beforeAll( async()=> {
     response = await api_utils.create_order(order_payload);
 });
 
-test('Automation Practice on E-commerce Website',async ({page})=>
+test('@API Automation Practice on E-commerce Website',async ({page})=>
     {
         await page.addInitScript(value => {
             window.localStorage.setItem('token',value);
@@ -108,8 +108,7 @@ test('Automation Practice on E-commerce Website',async ({page})=>
         //await expect(page.locator("div.address p.text")).last().toContainText("India");
         await page.waitForTimeout(3000);
         const orderId_details = await page.locator(".col-text").textContent();
-        await page.pause();
         await expect(response.orderId.includes(orderId_details)).toBeTruthy();
-        await expect(page.locator("div.artwork-card-info div.title")).toContainText("ADIDAS ORIGINAL")
+        await expect(page.locator("div.artwork-card-info div.title")).toContainText("ADIDAS ORIGINAL");
     }
 );

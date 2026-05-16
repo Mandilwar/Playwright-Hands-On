@@ -21,7 +21,7 @@ test.beforeAll(async({browser}) =>
     webcontext = await browser.newContext({storageState:'state.json'});
 });
 
-test('Automation Practice on E-commerce Website',async ()=>
+test('@API Automation Practice on E-commerce Website',async ()=>
     {
         const page = await webcontext.newPage();
         await page.goto("https://rahulshettyacademy.com/client/");
@@ -109,7 +109,7 @@ test('Automation Practice on E-commerce Website',async ()=>
     }
 );
 
-test('Automation Practice 2',async ()=>
+test('@API Automation Practice 2',async ()=>
     {
         const page = await webcontext.newPage();
         await page.goto("https://rahulshettyacademy.com/client/");

@@ -2,6 +2,7 @@
 const { defineConfig, devices } = require('@playwright/test');
 const config = ({
   testDir: './tests',
+  retries:2,
   timeout:40000, //40 secs explicit wait time
   expect: {
     timeout:40000
