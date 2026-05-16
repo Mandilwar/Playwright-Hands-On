@@ -3,7 +3,7 @@ const { custom_test } = require("../Test_Data/test_base");
 const { PO_manager } = require("../PageObjects/PO_manager");
 const test_data = JSON.parse(JSON.stringify(require("../Test_Data/place_order_test_data.json")));
 for (const dataset of test_data) {
-    test(`Client App Login Practice ${dataset.product_name}`, async ({ browser }) => {
+    test(`@Web Client App Login Practice ${dataset.product_name}`, async ({ browser }) => {
         const context = await browser.newContext();
         const page = await context.newPage();
         const po_manager = new PO_manager(page);

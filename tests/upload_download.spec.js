@@ -26,7 +26,7 @@ async function read_excel(worksheet, search_value)
     return output;
 }
 //write_excel("Samsung",350,{row_change:0,col_change:2},"/Users/L053981/Excel_Demo/practice1.xlsx");
-test("Upload and Download Excel Verification",async({browser})=>{
+test("@Web Upload and Download Excel Verification",async({browser})=>{
     const search_text = "Mango";
     const update_value = 350;
     const context = await browser.newContext({

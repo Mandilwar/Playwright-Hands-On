@@ -11,7 +11,7 @@ async function login(page, account) {
     await page.getByRole("button", { name: "Sign In" }).click();
     await expect(page.getByRole("link", { name: "Browse Events →" })).toBeVisible();
 }
-test("Cross User Booking Access Denied - Assignment 4", async ({ browser }) => {
+test("@API Cross User Booking Access Denied - Assignment 4", async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const api_context = await request.newContext({ ignoreHTTPSErrors: true });

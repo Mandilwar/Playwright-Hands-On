@@ -1,5 +1,5 @@
 const {test,expect} = require ('@playwright/test');
-test('Automation Practice on E-commerce Website',async ({browser})=>
+test('@Web Automation Practice on E-commerce Website',async ({browser})=>
     {
         const email = "umang1112@gmail.com";
         const context = await browser.newContext();

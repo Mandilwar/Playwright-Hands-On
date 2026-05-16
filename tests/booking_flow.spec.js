@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Assignment 1', async ({ browser }) => {
+test('@Web Assignment 1', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const email = "umang1112@gmail.com";
@@ -92,7 +92,7 @@ Overall it blends commerce, celebration, and tradition into a lively, family-fri
     console.log(allevents);
 });
 
-test('Assignment 2.1', async({ browser })=> {
+test('@Web Assignment 2.1', async({ browser })=> {
     const context = await browser.newContext();
     const page = await context.newPage();
     const email = "umang1112@gmail.com";
@@ -148,7 +148,7 @@ test('Assignment 2.1', async({ browser })=> {
     await expect(page.locator("#refund-result")).toContainText(" Single-ticket bookings qualify for a full refund.");
 });
 
-test('Assignment 2.2', async({ browser })=>{
+test('@Web Assignment 2.2', async({ browser })=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     const email = "umang1112@gmail.com";

@@ -30,7 +30,7 @@ async function loginAndGoToEvents(page)
   await expect(page.getByRole("link", {name: "Browse Events →"})).toBeVisible();
   await page.goto("https://eventhub.rahulshettyacademy.com/events");
 }
-test("Booking Flow with 6 events - Assignment 3.1", async ({browser})=>{
+test("@API Booking Flow with 6 events - Assignment 3.1", async ({browser})=>{
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.route("**/api/events**", 

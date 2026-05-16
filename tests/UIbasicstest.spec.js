@@ -1,6 +1,6 @@
 const {test,expect} = require ('@playwright/test');
 //test.describe.configure({mode:'parallel'});
-test('Browser Context Playwright Test',async ({browser})=>
+test('@Web Browser Context Playwright Test',async ({browser})=>
     {
         const context = await browser.newContext();
         const page = await context.newPage();
@@ -33,7 +33,7 @@ test('Browser Context Playwright Test',async ({browser})=>
         await expect(cardtitles.nth(1)).toContainText("Samsung Note 8");
     }
 );
-test('UI Controls',async ({browser})=>
+test('@Web UI Controls',async ({browser})=>
     {
         const context = await browser.newContext();
         const page = await context.newPage();
@@ -57,7 +57,7 @@ test('UI Controls',async ({browser})=>
     }   
 );
 
-test('Child Window Handling',async ({browser})=>
+test('@Web Child Window Handling',async ({browser})=>
     {
         const context = await browser.newContext();
         const page = await context.newPage();

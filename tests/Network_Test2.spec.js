@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-test("Security Test Request Intercept", async ({ page }) => {
+test("@API Security Test Request Intercept", async ({ page }) => {
     const email = "umang1112@gmail.com";
     const username = page.locator("#userEmail");
     const password = page.locator("#userPassword");
