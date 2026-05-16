@@ -1,5 +1,5 @@
 const {test,expect} = require('@playwright/test');
-test('Calendar Automation Exploration', async({ browser }) => {
+test('@Web Calendar Automation Exploration', async({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const month = "6";

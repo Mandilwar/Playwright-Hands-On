@@ -11,7 +11,7 @@ test.beforeAll( async()=> {
     response = await api_utils.create_order(order_payload);
 });
 
-test('Automation Practice on E-commerce Website',async ({page})=>
+test('@API Automation Practice on E-commerce Website',async ({page})=>
     {
         page.addInitScript(value => {
             window.localStorage.setItem('token',value);

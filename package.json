@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test" : "npx playwright test tests/WebAPI_part1.spec.js --headed"
+    "regression" : "npx playwright test --headed",
+    "WebTests" : "npx playwright test --grep @Web --headed",
+    "APITests" : "npx playwright test --grep @API --headed"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 const {test,expect} = require('@playwright/test');
 
-test('Playwright Special Locators', async ({ browser }) => {
+test('@Web Playwright Special Locators', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://rahulshettyacademy.com/angularpractice/');
