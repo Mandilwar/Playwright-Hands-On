@@ -13,9 +13,12 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    - name: Configure npm registry
+      run: |
+        echo "registry=https://elilillyco.jfrog.io/artifactory/api/npm/Lilly-NPM/" > .npmrc
+        echo "//elilillyco.jfrog.io/artifactory/api/npm/Lilly-NPM/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+        echo "always-auth=true" >> .npmrc
     - name: Install dependencies
-      env:
-        NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
