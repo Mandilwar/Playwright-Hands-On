@@ -19,6 +19,7 @@
     "exceljs": "^4.3.0"
   },
   "dependencies": {
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "uuid": "^14.0.0"
   }
 }
