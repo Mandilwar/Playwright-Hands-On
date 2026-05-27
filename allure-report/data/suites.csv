@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","7087","@API Automation Practice on E-commerce Website","","2026-05-27","passed","2026-05-27","","WebAPI_part2.spec.js","",""
+"","4819","@API Cross User Booking Access Denied - Assignment 4","","2026-05-27","passed","2026-05-27","","booking_flow_3.spec.js","",""
+"","5694","@API Automation Practice on E-commerce Website","","2026-05-27","passed","2026-05-27","","WebAPI_part1.spec.js","",""
+"","1599","@API Automation Practice on E-commerce Website","","2026-05-27","passed","2026-05-27","","Network_Test.spec.js","",""
+"","5432","@API Security Test Request Intercept","","2026-05-27","passed","2026-05-27","","Network_Test2.spec.js","",""
+"","404","@API Automation Practice 2","","2026-05-27","passed","2026-05-27","","WebAPI_part2.spec.js","",""
+"","4186","@API Booking Flow with 6 events - Assignment 3.1","","2026-05-27","passed","2026-05-27","","booking_flow_2.spec.js","",""
