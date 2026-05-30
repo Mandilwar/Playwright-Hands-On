@@ -1,0 +1,20 @@
+[
+    {
+    "email":"umang1112@gmail.com",
+    "password":"Umang@1104812",
+    "product_name":"ADIDAS ORIGINAL",
+    "cvv_code":"000",
+    "name":"James Bond",
+    "coupon_code":"rahulshettyacademy",
+    "country_name":" India"
+},
+{
+    "email":"james11111@gmail.com",
+    "password":"James@123",
+    "product_name":"ZARA COAT 3",
+    "cvv_code":"123",
+    "name":"Raj Shamani",
+    "coupon_code":"rahulshettyacademy",
+    "country_name":" India"
+}
+]
